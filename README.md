@@ -48,17 +48,57 @@ Data Preprocessing (Tokenization): The text is converted into numbers (token IDs
 
 * Mixed Precision Training: To speed up computations by using lower-precision (float16) operations where safe.
 
+
+
+## SLM (Small Language Model)
+Yeh project scratch se ek Small Language Model (SLM) banane par based hai. Iska main goal 50-60 million parameters ka model banana hai jo creative aur coherent text generate kar sake. Is project mein PyTorch library use ki gayi hai aur training ke liye "TinyStories" dataset ka use kiya gaya hai.
+
+## Dataset Import (Step 1)
+TinyStories dataset, jo GPT-3.5 aur GPT-4 dwara 3-4 saal ke bachchon ke liye banayi gayi hai, HuggingFace se import kiya gaya hai.
+
+## Data Preprocessing (Steps 2 & 3)
+Tokenization: Dataset ko tiktoken library se tokenIDs mein tokenize kiya gaya hai.
+
+* Storage: Tokenized data ko efficient computation ke liye RAM ke bajay disk par train.bin aur validation.bin files mein store kiya gaya hai.
+
+* Batching: Model training ke liye input-output batches banane ke liye ek get_batch function banaya gaya hai.
+
+## Model Architecture (Step 4)
+Model architecture mein yeh components shamil hain:
+
+* LayerNorm
+
+* CausalSelfAttention
+
+* MLP (Multi-Layer Perceptron)
+
+* Block (Transformer block)
+
+* GPT (Main model)
+
+* Model ko configure karne ke liye GPTConfig ka upyog kiya gaya hai, jismein vocab_size, block_size, n_layer, n_head, aur n_embd jaise parameters define kiye gaye hain.
+
+## Training and Evaluation (Steps 5-9)
+* Loss Function: Model ke training aur validation loss ko calculate karne ke liye estimate_loss function banaya gaya hai.
+
+* Configuration: Training ke hyperparameters jaise learning_rate, max_iters, batch_size, gradient_accumulation_steps, aur optimizer define kiye gaye hain.
+
+* Scheduler: Training ko smooth aur stable banane ke liye LinearLR aur CosineAnnealingLR ka use karte hue ek learning rate scheduler implement kiya gaya hai.
+
+* Loss Plotting: Model ke training aur validation loss ko visualize karne ke liye ek plot banaya gaya hai.
+
+## Model Inference (Step 10)
+Training ke baad, best model ko load karke usse naya text generate kiya gaya hai. Model ki text generation capability ko generate function ka upyog karke Once upon a time there was a pumpkin. aur A little girl went to the woods jaise prompts par test kiya gaya hai.
+
+
+
+
+
+
 ## 🚀 Results and Inference
 The model was trained for 20,000 iterations. Both the training and validation losses consistently decreased, showing that the model learned successfully.
 
 After training, the model was given an initial phrase ("Once upon a time there was a pumpkin") to generate new stories. Instead of producing random words, the model generated grammatically correct and coherent sentences, proving that it has learned language and storytelling.
-
-
-
-
-
-
-
 
 
 
