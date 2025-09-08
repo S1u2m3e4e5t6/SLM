@@ -1,6 +1,15 @@
 # 📝 Small Language Model (SLM) From Scratch
 This project focuses on building a small language model (SLM) completely from scratch, from the ground up. It includes both training and inference. The model is trained on a specific dataset to enable it to generate coherent English stories.
 
+
+
+### Google Colab Notebook link (Code file)
+
+```
+
+https://colab.research.google.com/drive/1nbzJdwfU-FCEAlP6r0KtL49h7fvk76t8?usp=sharing
+
+```
 ## 🌟 Project Goal
 
 We've created a 15-million-parameter model. The main goal is for the model to understand language, specifically stories written for 3-4 year-olds, and then generate new stories on its own. This proves that high-quality models can be built on small, well-curated datasets instead of massive ones.
