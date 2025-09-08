@@ -7,7 +7,7 @@ This project focuses on building a small language model (SLM) completely from sc
 
 ```
 
-https://colab.research.google.com/drive/1nbzJdwfU-FCEAlP6r0KtL49h7fvk76t8?usp=sharing
+https://colab.research.google.com/drive/1lILaoz8jH0rCmSCh66LvuQieZZAcxGtX?usp=sharing
 
 ```
 ## 🌟 Project Goal
